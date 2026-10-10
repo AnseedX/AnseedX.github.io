@@ -534,6 +534,10 @@ section { position: relative; }
 .badge__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .badge__head svg { width: 24px; height: 24px; }
 .badge__head .mono { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.badge__status { display: inline-flex; align-items: center; gap: 6px; }
+.badge__status i { width: 7px; height: 7px; border-radius: 50%; background: #0d0f0a; animation: badgeBlink 1.6s ease-in-out infinite; }
+@keyframes badgeBlink { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .badge__status i { animation: none; } }
 .badge__photo { aspect-ratio: 1 / 0.95; border-radius: 12px; overflow: hidden; background: #dfe2ea; }
 .badge__photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); transform-origin: 50% 50%; pointer-events: none; }
 .badge__name { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: .88; letter-spacing: -.035em; margin: 14px 0 6px; }
