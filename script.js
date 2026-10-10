@@ -37,6 +37,7 @@ const CONTENT = {
 
   // Project grid (the "hall of fame")
   projects: [
+    { art: "chess", title: "Chess Coach Agent", year: "2026", desc: "Stockfish finds the mistakes, a Gemini agent explains them at your rating level", tags: ["Google ADK", "Vertex AI", "Cloud Run"], link: "https://github.com/AnseedX/chess-coach-agent", seed: 15 },
     { art: "agronus", title: "Agronus", year: "2025", desc: "RAG-powered copilot giving farmers real-time, grounded guidance", tags: ["RAG", "LLM", "Imagine Cup 2026"], link: GITHUB, seed: 11 },
     { art: "realeye", title: "RealEye", year: "2025", desc: "Frequency-augmented Vision Transformer for deepfake & AI-image detection", tags: ["ViT", "PyTorch", "91% recall"], link: GITHUB, seed: 12 },
     { art: "icu", title: "ICU Posture Monitor", year: "2025–26", desc: "Real-time posture monitoring for bedsore-risk detection", tags: ["Computer Vision", "Healthcare", "95% acc"], link: GITHUB, seed: 13 },
