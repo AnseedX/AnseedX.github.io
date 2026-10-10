@@ -8,7 +8,7 @@
 const GITHUB = "https://github.com/AnseedX";
 
 const CONTENT = {
-  currentProject: "Milo",
+  currentProject: "Chess Coach Agent",
 
   // Horizontal "in production" gallery — AirAsia work
   gallery: [
@@ -22,22 +22,22 @@ const CONTENT = {
 
   // Featured project (the "helmet of the year")
   feature: {
-    art: "milo",
-    title: "Milo",
+    art: "chessFeature",
+    title: "Chess Coach Agent",
     year: "2026",
-    desc: "An offline-first coding CLI that brings frontier-grade agentic workflows to local LLMs — planning, editing and running code on your own machine with zero cloud dependency.",
+    desc: "An AI chess coach built on Google ADK. Stockfish analyses every move of your game and flags the mistakes, then a Gemini agent explains them in plain language at your rating level — grounded in engine-verified lines and deployed on Cloud Run.",
     metrics: [
-      { value: "0", label: "cloud dependencies" },
-      { value: "100%", label: "local inference" },
-      { value: "CLI", label: "agentic workflow" },
+      { value: "~3s", label: "engine review per game" },
+      { value: "4–6", label: "gemini calls per review" },
+      { value: "3", label: "coaching levels" },
     ],
-    link: GITHUB,
-    seed: 7,
+    link: "https://github.com/AnseedX/chess-coach-agent",
+    seed: 15,
   },
 
   // Project grid (the "hall of fame")
   projects: [
-    { art: "chess", title: "Chess Coach Agent", year: "2026", desc: "Stockfish finds the mistakes, a Gemini agent explains them at your rating level", tags: ["Google ADK", "Vertex AI", "Cloud Run"], link: "https://github.com/AnseedX/chess-coach-agent", seed: 15 },
+    { art: "miloCard", title: "Milo", year: "2026", desc: "Offline-first coding CLI bringing agentic workflows to local LLMs", tags: ["Local LLMs", "Agents", "CLI"], link: GITHUB, seed: 7 },
     { art: "agronus", title: "Agronus", year: "2025", desc: "RAG-powered copilot giving farmers real-time, grounded guidance", tags: ["RAG", "LLM", "Imagine Cup 2026"], link: GITHUB, seed: 11 },
     { art: "realeye", title: "RealEye", year: "2025", desc: "Frequency-augmented Vision Transformer for deepfake & AI-image detection", tags: ["ViT", "PyTorch", "91% recall"], link: GITHUB, seed: 12 },
     { art: "icu", title: "ICU Posture Monitor", year: "2025–26", desc: "Real-time posture monitoring for bedsore-risk detection", tags: ["Computer Vision", "Healthcare", "95% acc"], link: GITHUB, seed: 13 },

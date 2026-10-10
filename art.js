@@ -271,45 +271,97 @@ const ART = {
       <text x="200" y="316" text-anchor="middle" ${M} font-size="10" fill="${t.fg}">consult</text>`);
   },
 
-  // Chess coach: engine flags the blunder, the agent explains the better move
-  chess: t => {
-    const s = 20, ox = 24, oy = 64;
-    const sq = (f, r) => [ox + "abcdefgh".indexOf(f) * s + s / 2, oy + (8 - r) * s + s / 2];
-    // outline glyphs for White, solid for Black, so the sides read in either theme
-    const G = { w: { K: "♔", Q: "♕", R: "♖", B: "♗", N: "♘", P: "♙" }, b: { K: "♚", Q: "♛", R: "♜", B: "♝", N: "♞", P: "♟" } };
-    // Légal's trap after 5.Nxe5: Black to move
-    const white = "Ra1 Bc1 Qd1 Ke1 Rh1 Pa2 Pb2 Pc2 Pd2 Pf2 Pg2 Ph2 Nc3 Bc4 Pe4 Ne5";
-    const black = "Ra8 Nb8 Qd8 Ke8 Bf8 Ng8 Rh8 Pa7 Pb7 Pc7 Pf7 Ph7 Pd6 Pg6 Bg4";
-    const pieces = (list, fill, side) => list.split(" ").map(p => {
-      const [x, y] = sq(p[1], +p[2]);
-      return `<text x="${x}" y="${y + 5.5}" text-anchor="middle" font-family="'Segoe UI Symbol','DejaVu Sans',sans-serif" font-size="16" fill="${fill}">${G[side][p[0]]}︎</text>`;
-    }).join("");
-    const squares = Array.from({ length: 64 }, (_, i) =>
-      (i + (i >> 3)) % 2 ? "" : `<rect x="${ox + (i % 8) * s}" y="${oy + (i >> 3) * s}" width="${s}" height="${s}" fill="${t.line}"/>`).join("");
-    const [gx, gy] = sq("g", 4), [dx, dy] = sq("d", 1), [d6x, d6y] = sq("d", 6), [ex, ey] = sq("e", 5);
-    const curve = [[24, 330], [64, 329], [104, 331], [144, 330], [184, 333], [224, 338], [264, 342], [292, 344], [300, 368], [376, 370]];
+  // Chess coach (featured, 640 x 400): engine flags the blunder, the agent explains the better move
+  chessFeature: t => wrap(640, 400, t, `
+    <text x="40" y="48" ${M} font-size="12" fill="${t.mute}">game review · move 5 · black to play</text>
+    ${chessBoard(t, 40, 72, 30)}
+    <text x="320" y="100" ${D} font-size="34" fill="${t.ink}">5…Bxd1??</text>
+    <text x="320" y="124" ${M} font-size="11" fill="${t.mute}">blunder · mate in 2 · −100% win chance</text>
+    ${chessBubble(t, 320, 140, 280, 13)}
+    ${chessCurve(t, 320, 600, 318, 344)}
+    <text x="600" y="48" text-anchor="end" ${M} font-size="10" fill="${t.mute}">google adk · gemini · stockfish</text>`),
+
+  // Milo card (400 x 400): the same offline agentic session, sized for the grid
+  miloCard: t => {
+    const ink = "#f1efe6", mute = "rgba(241,239,230,.45)", lime = "#d2ff00";
+    const L = [
+      [`<tspan fill="${lime}">$</tspan> milo "add retry logic"`, ink],
+      ["  model    local llm · on-device", mute],
+      ["  network  not required", mute],
+      ["", ink],
+      ["plan", lime],
+      [`  <tspan fill="${lime}">✓</tspan> read    src/http/client.py`, ink],
+      [`  <tspan fill="${lime}">✓</tspan> edit    retry + backoff`, ink],
+      [`  <tspan fill="${lime}">✓</tspan> test    pytest · passing`, ink],
+      [`  <tspan fill="${lime}">▸</tspan> review  apply diff? [y/n]`, ink],
+    ];
     return wrap(400, 400, t, `
-      <text x="24" y="44" ${M} font-size="12" fill="${t.mute}">game review · move 5</text>
-      <rect x="${ox}" y="${oy}" width="${8 * s}" height="${8 * s}" fill="none" stroke="${t.line}" stroke-width="1.5"/>
-      ${squares}
-      <rect x="${gx - s / 2}" y="${gy - s / 2}" width="${s}" height="${s}" fill="${t.mute}" opacity=".35"/>
-      <rect x="${ex - s / 2}" y="${ey - s / 2}" width="${s}" height="${s}" fill="${t.fg}" opacity=".35"/>
-      ${pieces(white, t.ink, "w")}${pieces(black, t.fg, "b")}
-      <line x1="${gx}" y1="${gy}" x2="${dx + 4}" y2="${dy - 4}" stroke="${t.mute}" stroke-width="2" stroke-dasharray="3 4"/>
-      <circle cx="${dx}" cy="${dy}" r="8" fill="none" stroke="${t.mute}" stroke-width="2"/>
-      ${flow(`M${d6x} ${d6y} L ${ex} ${ey}`, t, ".8s")}
-      <circle cx="${ex}" cy="${ey}" r="9" fill="none" stroke="${t.fg}" stroke-width="2">${blink("1.2s")}</circle>
-      <text x="200" y="84" ${D} font-size="24" fill="${t.ink}">5…Bxd1??</text>
-      <text x="200" y="104" ${M} font-size="10" fill="${t.mute}">blunder · mate in 2</text>
-      <rect x="200" y="118" width="176" height="128" rx="14" fill="${t.fg}"/>
-      <text ${B} font-size="11" fill="${t.onFg}"><tspan x="212" y="140">Taking the queen walks</tspan><tspan x="212" y="156">into 6.Bxf7+ Ke7 7.Nd5#.</tspan><tspan x="212" y="178">Play 5…dxe5 instead and</tspan><tspan x="212" y="194">you're only a pawn down.</tspan></text>
-      <rect x="210" y="212" width="132" height="22" rx="11" fill="${t.onFg}"/>
-      <text x="222" y="227" ${M} font-size="9" fill="${t.fg}">✓ stockfish-verified</text>
-      <text x="24" y="288" ${M} font-size="10" fill="${t.mute}">black's winning chances</text>
-      <line x1="24" y1="330" x2="376" y2="330" stroke="${t.line}" stroke-width="1" stroke-dasharray="3 5"/>
-      <polyline points="${curve.map(p => p.join(",")).join(" ")}" fill="none" stroke="${t.fg}" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="296" cy="356" r="5" fill="${t.fg}">${blink(".9s")}</circle>
-      <text x="306" y="352" ${M} font-size="10" fill="${t.ink}">Bxd1??</text>
-      <text x="376" y="388" text-anchor="end" ${M} font-size="10" fill="${t.mute}">google adk · gemini · stockfish</text>`);
+      <rect x="20" y="20" width="360" height="360" rx="14" fill="#0d0f0a" stroke="${t.line}"/>
+      <circle cx="42" cy="40" r="5" fill="rgba(241,239,230,.2)"/><circle cx="58" cy="40" r="5" fill="rgba(241,239,230,.2)"/><circle cx="74" cy="40" r="5" fill="rgba(241,239,230,.2)"/>
+      <text x="220" y="44" text-anchor="middle" ${M} font-size="10" fill="${mute}">milo — ~/projects/api</text>
+      <line x1="20" y1="60" x2="380" y2="60" stroke="rgba(241,239,230,.1)"/>
+      <rect x="276" y="74" width="88" height="22" rx="11" fill="none" stroke="${lime}"/>
+      <text x="320" y="89" text-anchor="middle" ${M} font-size="10" fill="${lime}">● offline</text>
+      ${L.map(([s, c], i) => `<text x="40" y="${124 + i * 26}" ${M} font-size="11.5" fill="${c}" xml:space="preserve">${s}</text>`).join("")}
+      <rect x="226" y="327" width="8" height="14" fill="${lime}">${blink("1s")}</rect>`);
   },
 };
+
+/* ---------- chess coach helpers ---------- */
+
+// Légal's trap after 5.Nxe5, Black to move: the played 5...Bxd1?? (dashed)
+// and the engine's 5...dxe5 (animated). Board at (ox, oy), square size s.
+function chessBoard(t, ox, oy, s) {
+  const sq = (f, r) => [ox + "abcdefgh".indexOf(f) * s + s / 2, oy + (8 - r) * s + s / 2];
+  // outline glyphs for White, solid for Black, so the sides read in either theme
+  const G = { w: { K: "♔", Q: "♕", R: "♖", B: "♗", N: "♘", P: "♙" }, b: { K: "♚", Q: "♛", R: "♜", B: "♝", N: "♞", P: "♟" } };
+  const white = "Ra1 Bc1 Qd1 Ke1 Rh1 Pa2 Pb2 Pc2 Pd2 Pf2 Pg2 Ph2 Nc3 Bc4 Pe4 Ne5";
+  const black = "Ra8 Nb8 Qd8 Ke8 Bf8 Ng8 Rh8 Pa7 Pb7 Pc7 Pf7 Ph7 Pd6 Pg6 Bg4";
+  const fs = s * 0.8;
+  const pieces = (list, fill, side) => list.split(" ").map(p => {
+    const [x, y] = sq(p[1], +p[2]);
+    return `<text x="${x}" y="${y + fs * 0.34}" text-anchor="middle" font-family="'Segoe UI Symbol','DejaVu Sans',sans-serif" font-size="${fs}" fill="${fill}">${G[side][p[0]]}︎</text>`;
+  }).join("");
+  const squares = Array.from({ length: 64 }, (_, i) =>
+    (i + (i >> 3)) % 2 ? "" : `<rect x="${ox + (i % 8) * s}" y="${oy + (i >> 3) * s}" width="${s}" height="${s}" fill="${t.line}"/>`).join("");
+  const [gx, gy] = sq("g", 4), [dx, dy] = sq("d", 1), [d6x, d6y] = sq("d", 6), [ex, ey] = sq("e", 5);
+  return `
+    <rect x="${ox}" y="${oy}" width="${8 * s}" height="${8 * s}" fill="none" stroke="${t.line}" stroke-width="1.5"/>
+    ${squares}
+    <rect x="${gx - s / 2}" y="${gy - s / 2}" width="${s}" height="${s}" fill="${t.mute}" opacity=".35"/>
+    <rect x="${ex - s / 2}" y="${ey - s / 2}" width="${s}" height="${s}" fill="${t.fg}" opacity=".35"/>
+    ${pieces(white, t.ink, "w")}${pieces(black, t.fg, "b")}
+    <line x1="${gx}" y1="${gy}" x2="${dx + s * 0.2}" y2="${dy - s * 0.2}" stroke="${t.mute}" stroke-width="2" stroke-dasharray="3 4"/>
+    <circle cx="${dx}" cy="${dy}" r="${s * 0.4}" fill="none" stroke="${t.mute}" stroke-width="2"/>
+    ${flow(`M${d6x} ${d6y} L ${ex} ${ey}`, t, ".8s")}
+    <circle cx="${ex}" cy="${ey}" r="${s * 0.45}" fill="none" stroke="${t.fg}" stroke-width="2">${blink("1.2s")}</circle>`;
+}
+
+// The coach's explanation, with the "verified" chip. fs = font size.
+function chessBubble(t, x, y, w, fs) {
+  const lh = fs * 1.45, pad = fs * 1.1;
+  const lines = [["Taking the queen walks", "into 6.Bxf7+ Ke7 7.Nd5#."], ["Play 5…dxe5 instead and", "you're only a pawn down."]];
+  let ty = y + pad + fs;
+  const text = lines.map((para, i) => {
+    if (i) ty += lh * 0.5;
+    return para.map(l => { const s = `<tspan x="${x + pad}" y="${ty}">${l}</tspan>`; ty += lh; return s; }).join("");
+  }).join("");
+  const chipY = ty - lh + fs * 1.1, chipH = fs * 2;
+  return `
+    <rect x="${x}" y="${y}" width="${w}" height="${chipY + chipH + pad - y}" rx="14" fill="${t.fg}"/>
+    <text ${B} font-size="${fs}" fill="${t.onFg}">${text}</text>
+    <rect x="${x + pad * 0.9}" y="${chipY}" width="${fs * 12}" height="${chipH}" rx="${chipH / 2}" fill="${t.onFg}"/>
+    <text x="${x + pad * 0.9 + fs}" y="${chipY + chipH * 0.68}" ${M} font-size="${fs * 0.82}" fill="${t.fg}">✓ stockfish-verified</text>`;
+}
+
+// Black's winning chances across the game, falling off a cliff at the blunder.
+function chessCurve(t, x0, x1, labelY, mid) {
+  const w = x1 - x0, at = f => x0 + w * f;
+  const pts = [[0, 0], [.11, -1], [.23, 1], [.34, 0], [.45, 3], [.57, 8], [.68, 12], [.76, 14], [.78, 38], [1, 40]];
+  return `
+    <text x="${x0}" y="${labelY}" ${M} font-size="10" fill="${t.mute}">black's winning chances</text>
+    <line x1="${x0}" y1="${mid}" x2="${x1}" y2="${mid}" stroke="${t.line}" stroke-width="1" stroke-dasharray="3 5"/>
+    <polyline points="${pts.map(([f, d]) => `${at(f)},${mid + d}`).join(" ")}" fill="none" stroke="${t.fg}" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${at(.77)}" cy="${mid + 26}" r="5" fill="${t.fg}">${blink(".9s")}</circle>
+    <text x="${at(.77) + 10}" y="${mid + 22}" ${M} font-size="10" fill="${t.ink}">Bxd1??</text>`;
+}
