@@ -4,12 +4,12 @@
    Each takes a theme (DARK by default, LIME for hover states).
    ========================================================= */
 const DARK = {
-  bg: "#121826", fg: "#7aa2ff", onFg: "#0a0d14", ink: "#f1f3f8",
-  mute: "rgba(241,243,248,.45)", line: "rgba(241,243,248,.14)",
+  bg: "#15180f", fg: "#d2ff00", onFg: "#0d0f0a", ink: "#f1efe6",
+  mute: "rgba(241,239,230,.45)", line: "rgba(241,239,230,.14)",
 };
 const LIME = {
-  bg: "#1d3a8a", fg: "#f1f3f8", onFg: "#1d3a8a", ink: "#f1f3f8",
-  mute: "rgba(241,243,248,.6)", line: "rgba(241,243,248,.2)",
+  bg: "#d2ff00", fg: "#0d0f0a", onFg: "#d2ff00", ink: "#0d0f0a",
+  mute: "rgba(13,15,10,.55)", line: "rgba(13,15,10,.16)",
 };
 const M = `font-family="JetBrains Mono, ui-monospace, monospace"`;
 const D = `font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800"`;
@@ -76,7 +76,7 @@ const ART = {
       <path d="M170 228 H 206" stroke="${t.fg}" stroke-width="2"/><path d="M200 221 L208 228 L200 235" fill="none" stroke="${t.fg}" stroke-width="2"/>
       <rect x="218" y="66" width="162" height="318" rx="10" fill="${t.ink}"/>
       <text x="234" y="98" ${D} font-size="17" fill="${t.onFg}">BRD v1.0</text>
-      <rect x="234" y="108" width="40" height="4" rx="2" fill="${t.fg === "#7aa2ff" ? "#4f72c9" : t.onFg}"/>
+      <rect x="234" y="108" width="40" height="4" rx="2" fill="${t.fg === "#d2ff00" ? "#9bbd00" : t.onFg}"/>
       ${secs.map((s, i) => {
         const y = 140 + i * 62;
         return `<text x="234" y="${y}" ${M} font-size="10" fill="${t.onFg}">${s}</text>
@@ -154,7 +154,7 @@ const ART = {
 
   // Milo: an agentic coding session running fully offline
   milo: t => {
-    const ink = "#f1f3f8", mute = "rgba(241,243,248,.45)", lime = "#7aa2ff";
+    const ink = "#f1efe6", mute = "rgba(241,239,230,.45)", lime = "#d2ff00";
     const L = [
       [`<tspan fill="${lime}">$</tspan> milo "add retry logic to the http client"`, ink],
       ["  model     local llm · on-device", mute],
@@ -167,10 +167,10 @@ const ART = {
       [`  <tspan fill="${lime}">▸</tspan> review  apply diff? [y/n]`, ink],
     ];
     return wrap(640, 400, t, `
-      <rect x="30" y="28" width="580" height="344" rx="14" fill="#0a0d14" stroke="${t.line}"/>
-      <circle cx="54" cy="48" r="5" fill="rgba(241,243,248,.2)"/><circle cx="72" cy="48" r="5" fill="rgba(241,243,248,.2)"/><circle cx="90" cy="48" r="5" fill="rgba(241,243,248,.2)"/>
+      <rect x="30" y="28" width="580" height="344" rx="14" fill="#0d0f0a" stroke="${t.line}"/>
+      <circle cx="54" cy="48" r="5" fill="rgba(241,239,230,.2)"/><circle cx="72" cy="48" r="5" fill="rgba(241,239,230,.2)"/><circle cx="90" cy="48" r="5" fill="rgba(241,239,230,.2)"/>
       <text x="320" y="52" text-anchor="middle" ${M} font-size="11" fill="${mute}">milo — ~/projects/api</text>
-      <line x1="30" y1="68" x2="610" y2="68" stroke="rgba(241,243,248,.1)"/>
+      <line x1="30" y1="68" x2="610" y2="68" stroke="rgba(241,239,230,.1)"/>
       <rect x="494" y="82" width="96" height="24" rx="12" fill="none" stroke="${lime}"/>
       <text x="542" y="98" text-anchor="middle" ${M} font-size="10" fill="${lime}">● offline</text>
       ${L.map(([s, c], i) => `<text x="54" y="${100 + i * 29}" ${M} font-size="13" fill="${c}" xml:space="preserve">${s}</text>`).join("")}

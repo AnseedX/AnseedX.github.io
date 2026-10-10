@@ -94,8 +94,8 @@ function rand(seed) {
 }
 function art(seed, alt = false) {
   const r = rand(seed + (alt ? 100 : 0));
-  const bg = alt ? "#1d3a8a" : "#121826";
-  const fg = alt ? "#f1f3f8" : "#7aa2ff";
+  const bg = alt ? "#d2ff00" : "#15180f";
+  const fg = alt ? "#0d0f0a" : "#d2ff00";
   const pts = Array.from({ length: 26 }, () => [r() * 400, r() * 500]);
   let lines = "";
   pts.forEach((a, i) => pts.slice(i + 1).forEach(b => {
@@ -253,12 +253,12 @@ document.addEventListener("pointerover", e => {
     ctx.lineWidth = 1;
     edges.forEach(([a, b]) => {
       const d = (P[a][2] + P[b][2]) / 2; // -1 (front) .. 1 (back)
-      ctx.strokeStyle = `rgba(122,162,255,${0.04 + (1 - d) * 0.12})`;
+      ctx.strokeStyle = `rgba(210,255,0,${0.04 + (1 - d) * 0.12})`;
       ctx.beginPath(); ctx.moveTo(P[a][0], P[a][1]); ctx.lineTo(P[b][0], P[b][1]); ctx.stroke();
     });
     P.forEach(([x, y, z]) => {
       const a = 0.25 + (1 - z) * 0.4;
-      ctx.fillStyle = `rgba(122,162,255,${a})`;
+      ctx.fillStyle = `rgba(210,255,0,${a})`;
       ctx.beginPath(); ctx.arc(x, y, 1 + (1 - z) * 1.4, 0, 6.283); ctx.fill();
     });
     // signal pulses travelling along edges
@@ -267,7 +267,7 @@ document.addEventListener("pointerover", e => {
       const p = pulses[i]; p.t += 0.03;
       if (p.t >= 1) { pulses.splice(i, 1); continue; }
       const [a, b] = p.e, x = P[a][0] + (P[b][0] - P[a][0]) * p.t, y = P[a][1] + (P[b][1] - P[a][1]) * p.t;
-      ctx.fillStyle = "#7aa2ff"; ctx.shadowColor = "#7aa2ff"; ctx.shadowBlur = 12;
+      ctx.fillStyle = "#d2ff00"; ctx.shadowColor = "#d2ff00"; ctx.shadowBlur = 12;
       ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
     }
     requestAnimationFrame(frame);
