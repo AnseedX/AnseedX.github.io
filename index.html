@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>document.documentElement.classList.add("js")</script>
+  <title>Mohamed Ansaff — AI Engineer</title>
+  <meta name="description" content="Mohamed Ansaff Abdul Salam — AI Engineer building production agentic AI, MCP infrastructure and ML systems on Google Cloud. Based in Malaysia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="loader" id="loader">
+    <div class="loader__count"><span id="loaderCount">0</span>%</div>
+    <div class="loader__label mono">initialising agents…</div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"><span class="cursor__label" id="cursorLabel"></span></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" aria-label="Home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40V8l12 18L30 8v32M30 40l6-16 6 16M32.5 34h7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    </a>
+    <nav class="nav__links">
+      <a href="#experience">experience</a>
+      <a href="#work">work</a>
+      <a href="#models">projects</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a class="nav__cta" href="mailto:mohamedansaff.ai@gmail.com">let's talk <span>↗</span></a>
+    <button class="nav__burger" id="burger" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <a href="#experience">experience</a>
+    <a href="#work">work</a>
+    <a href="#models">projects</a>
+    <a href="#stack">stack</a>
+    <a href="#education">education</a>
+    <a href="#contact">contact</a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="neural" class="hero__canvas"></canvas>
+      <div class="hero__inner">
+        <p class="hero__eyebrow mono"><span class="dot"></span> open to ai engineering roles</p>
+        <h1 class="hero__title">
+          <span class="line"><span>mohamed</span></span>
+          <span class="line"><span>ansaff<em>.</em></span></span>
+        </h1>
+        <p class="hero__role">AI Engineer — <span class="lime">agentic AI, LLMs &amp; ML systems</span> on Google Cloud</p>
+      </div>
+
+      <a class="hero__card" href="#models">
+        <span class="mono hero__card-tag">latest build</span>
+        <strong id="currentProject">Milo</strong>
+        <span class="hero__card-meta mono">offline-first agentic coding cli</span>
+        <span class="hero__card-meta mono">agent step <b id="epoch">042</b> · loss <b id="loss">0.0213</b></span>
+        <span class="hero__card-arrow">→</span>
+      </a>
+
+      <div class="hero__scroll mono">scroll <span>↓</span></div>
+      <div class="hero__since mono">based in <b>malaysia</b></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>agentic ai</span><i>✦</i><span>google adk</span><i>✦</i><span>model context protocol</span><i>✦</i><span>rag</span><i>✦</i><span>vertex ai</span><i>✦</i><span>computer vision</span><i>✦</i><span>deep learning</span><i>✦</i>
+        <span>agentic ai</span><i>✦</i><span>google adk</span><i>✦</i><span>model context protocol</span><i>✦</i><span>rag</span><i>✦</i><span>vertex ai</span><i>✦</i><span>computer vision</span><i>✦</i><span>deep learning</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- MESSAGE -->
+    <section class="message" id="about">
+      <div class="badge-stage" id="badgeStage">
+        <svg class="badge-strap" aria-hidden="true">
+          <path id="strapPath" d="" />
+          <text><textPath href="#strapPath" startOffset="0">ANSAFF ✦ AI ENGINEER ✦ ANSAFF ✦ AI ENGINEER ✦ ANSAFF ✦ AI ENGINEER ✦</textPath></text>
+        </svg>
+        <div class="badge" id="badge" data-cursor="drag me">
+          <span class="badge__clip"></span>
+          <span class="badge__slot"></span>
+          <div class="badge__head">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40V8l12 18L30 8v32M30 40l6-16 6 16M32.5 34h7" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <span class="mono">all-access · 2026</span>
+          </div>
+          <div class="badge__photo"><img src="images/me.jpg" alt="Mohamed Ansaff" width="880" height="880" draggable="false" /></div>
+          <div class="badge__name">Mohamed<br/>Ansaff</div>
+          <div class="badge__role mono">AI Engineer · Kuala Lumpur</div>
+          <div class="badge__foot">
+            <div class="badge__qr" id="badgeQr" title="Scan for LinkedIn"></div>
+            <div class="badge__code">
+              <div class="badge__barcode" id="badgeBarcode"></div>
+              <span class="mono">ID · MA-2026-AI</span>
+            </div>
+          </div>
+        </div>
+        <span class="badge-hint mono">↑ grab &amp; toss me</span>
+      </div>
+      <div class="message__body">
+      <p class="mono section-tag">// a message from me</p>
+      <p class="message__text reveal-words">
+        I build AI that leaves the notebook. At AirAsia I shipped <b>agents</b>, MCP infrastructure and data pipelines
+        to production on Google Cloud — turning days of manual work into <b>seconds</b>. I care about AI that is
+        grounded, secure and genuinely <b>useful</b> to the people who rely on it.
+      </p>
+      <div class="message__sign">
+        <span class="mono">— Mohamed Ansaff Abdul Salam</span>
+      </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="journey" id="experience">
+      <div class="journey__head">
+        <p class="mono section-tag">// on track</p>
+        <h2 class="big">work<br/><span class="outline">experience</span></h2>
+      </div>
+      <ol class="journey__list" id="experienceList"><!-- filled by script.js --></ol>
+    </section>
+
+    <!-- HORIZONTAL GALLERY: AirAsia work -->
+    <section class="gallery" id="work">
+      <div class="gallery__pin">
+        <div class="gallery__head">
+          <p class="mono section-tag">// airasia · ai team · 2026</p>
+          <h2 class="big">in<br/><span class="outline">production</span></h2>
+        </div>
+        <div class="gallery__track" id="galleryTrack"><!-- filled by script.js --></div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote">
+      <blockquote>
+        <span class="mono section-tag">// fide arena candidate master</span>
+        <p>“Chess taught me to think <span class="lime">moves ahead</span>. Agents let software do the same.”</p>
+      </blockquote>
+    </section>
+
+    <!-- SPLIT CARDS -->
+    <section class="split">
+      <a class="split__card" href="#work" data-cursor="explore">
+        <span class="mono">01</span>
+        <h3>in<br/>production</h3>
+        <p>ADK agents, MCP servers &amp; secure GCP pipelines shipped at AirAsia</p>
+        <span class="split__arrow">→</span>
+      </a>
+      <a class="split__card split__card--alt" href="#models" data-cursor="explore">
+        <span class="mono">02</span>
+        <h3>in<br/>research</h3>
+        <p>Deepfake detection, RAG copilots, healthcare AI &amp; local-LLM agents</p>
+        <span class="split__arrow">→</span>
+      </a>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="models" id="models">
+      <div class="models__head">
+        <p class="mono section-tag">// model hall of fame</p>
+        <h2 class="big">projects<span class="lime">.</span></h2>
+      </div>
+      <div class="models__feature" id="featureProject"><!-- filled by script.js --></div>
+      <div class="models__grid" id="projectGrid"><!-- filled by script.js --></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stat"><b data-count="6">0</b><span>production systems shipped at airasia</span></div>
+      <div class="stat"><b data-count="50" data-suffix="%">0</b><span>processing overhead cut by my gcp pipeline</span></div>
+      <div class="stat"><b data-count="40" data-suffix="%+">0</b><span>faster feature scoping with my brd agent</span></div>
+      <div class="stat"><b data-count="3">0</b><span>business teams running my agents — legal, product &amp; ops</span></div>
+    </section>
+
+    <!-- STACK -->
+    <section class="stack" id="stack">
+      <div class="stack__head">
+        <p class="mono section-tag">// &amp;toolchain</p>
+        <h2 class="big">the<br/><span class="outline">stack</span></h2>
+      </div>
+      <div class="stack__grid" id="stackGrid"><!-- filled by script.js --></div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="journey journey--edu" id="education">
+      <div class="journey__head">
+        <p class="mono section-tag">// the foundations</p>
+        <h2 class="big">edu<span class="outline">cation</span></h2>
+      </div>
+      <ol class="journey__list" id="educationList"><!-- filled by script.js --></ol>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="writing" id="credentials">
+      <div class="writing__head">
+        <p class="mono section-tag">// off track</p>
+        <h2 class="big">certs &amp;<br/>honours</h2>
+      </div>
+      <ul class="writing__list" id="writingList"><!-- filled by script.js --></ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <p class="mono section-tag">// let's build something</p>
+    <a class="footer__mail" href="mailto:mohamedansaff.ai@gmail.com" data-cursor="email">
+      mohamedansaff.ai<span class="lime">@</span>gmail.com
+    </a>
+    <div class="footer__cols">
+      <div>
+        <span class="mono">pages</span>
+        <a href="#work">Work</a><a href="#models">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#stack">Stack</a>
+      </div>
+      <div>
+        <span class="mono">follow</span>
+        <a href="https://www.linkedin.com/in/ansaff" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AnseedX" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div>
+        <span class="mono">resume</span>
+        <a href="resume.pdf" target="_blank">Download CV ↓</a>
+        <span class="footer__loc">Kuala Lumpur, Malaysia</span>
+      </div>
+    </div>
+    <h2 class="footer__tag">always<br/><span class="lime">shipping.</span></h2>
+    <div class="footer__bottom mono">
+      <span>© <span id="year"></span> Mohamed Ansaff Abdul Salam</span>
+      <span>designed &amp; engineered by hand</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="art.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="badge.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
