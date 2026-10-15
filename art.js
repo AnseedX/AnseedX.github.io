@@ -1,15 +1,15 @@
 /* =========================================================
    Project illustrations — one bespoke, animated SVG per project
    that shows what the system actually does.
-   Each takes a theme (DARK by default, LIME for hover states).
+   Each takes a theme (LIGHT by default, LIME for hover states).
    ========================================================= */
-const DARK = {
-  bg: "#15180f", fg: "#d2ff00", onFg: "#0d0f0a", ink: "#f1efe6",
-  mute: "rgba(241,239,230,.45)", line: "rgba(241,239,230,.14)",
+const LIGHT = {
+  bg: "#ebeee0", fg: "#282c20", onFg: "#d2ff00", ink: "#282c20",
+  mute: "rgba(40,44,32,.5)", line: "rgba(40,44,32,.14)",
 };
 const LIME = {
-  bg: "#d2ff00", fg: "#0d0f0a", onFg: "#d2ff00", ink: "#0d0f0a",
-  mute: "rgba(13,15,10,.55)", line: "rgba(13,15,10,.16)",
+  bg: "#d2ff00", fg: "#282c20", onFg: "#d2ff00", ink: "#282c20",
+  mute: "rgba(40,44,32,.55)", line: "rgba(40,44,32,.16)",
 };
 const M = `font-family="JetBrains Mono, ui-monospace, monospace"`;
 const D = `font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800"`;
@@ -167,7 +167,7 @@ const ART = {
       [`  <tspan fill="${lime}">▸</tspan> review  apply diff? [y/n]`, ink],
     ];
     return wrap(640, 400, t, `
-      <rect x="30" y="28" width="580" height="344" rx="14" fill="#0d0f0a" stroke="${t.line}"/>
+      <rect x="30" y="28" width="580" height="344" rx="14" fill="#282c20" stroke="${t.line}"/>
       <circle cx="54" cy="48" r="5" fill="rgba(241,239,230,.2)"/><circle cx="72" cy="48" r="5" fill="rgba(241,239,230,.2)"/><circle cx="90" cy="48" r="5" fill="rgba(241,239,230,.2)"/>
       <text x="320" y="52" text-anchor="middle" ${M} font-size="11" fill="${mute}">milo — ~/projects/api</text>
       <line x1="30" y1="68" x2="610" y2="68" stroke="rgba(241,239,230,.1)"/>
@@ -296,7 +296,7 @@ const ART = {
       [`  <tspan fill="${lime}">▸</tspan> review  apply diff? [y/n]`, ink],
     ];
     return wrap(400, 400, t, `
-      <rect x="20" y="20" width="360" height="360" rx="14" fill="#0d0f0a" stroke="${t.line}"/>
+      <rect x="20" y="20" width="360" height="360" rx="14" fill="#282c20" stroke="${t.line}"/>
       <circle cx="42" cy="40" r="5" fill="rgba(241,239,230,.2)"/><circle cx="58" cy="40" r="5" fill="rgba(241,239,230,.2)"/><circle cx="74" cy="40" r="5" fill="rgba(241,239,230,.2)"/>
       <text x="220" y="44" text-anchor="middle" ${M} font-size="10" fill="${mute}">milo — ~/projects/api</text>
       <line x1="20" y1="60" x2="380" y2="60" stroke="rgba(241,239,230,.1)"/>
