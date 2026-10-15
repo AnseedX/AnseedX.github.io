@@ -47,7 +47,7 @@ const CONTENT = {
   // "*" after a name marks equal contribution; my name is highlighted
   publications: [
     {
-      venue: "WACV 2027", status: "accepted",
+      venue: "WACV 2027", status: "accepted", logo: "images/logos/wacv.svg",
       title: "M-PFT: Angular Margin for Calibrated Prompt-Tuning of Fine-Tuned Vision-Language Models",
       authors: ["Shihab Aaqil Ahamed*", "Mohamed Ansaff*", "Nang Khin Myat Lay Phyu", "Udaya Sampath K. Perera Miriya Thanthrige", "Chamira U. S. Edussooriya", "Ranga Rodrigo", "Muhammad Haris Khan"],
       tags: ["Vision-Language Models", "Prompt Tuning", "Calibration", "Equal first author"],
@@ -178,7 +178,7 @@ $("#educationList").innerHTML = timeline(CONTENT.education);
 const ME = "Mohamed Ansaff";
 $("#publicationList").innerHTML = CONTENT.publications.map(p => `
   <li class="journey__item pub">
-    <div class="journey__side"><span class="pub__venue">${p.venue}</span><span class="mono journey__when">${p.status}</span></div>
+    <div class="journey__side">${p.logo ? `<img class="pub__logo" src="${p.logo}" alt="${p.venue}">` : `<span class="pub__venue">${p.venue}</span>`}<span class="mono journey__when">${p.logo ? `${p.venue.toLowerCase()} · ` : ""}${p.status}</span></div>
     <div>
       <h3>${p.title}</h3>
       <p class="pub__authors">${p.authors.map(a => {

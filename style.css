@@ -371,6 +371,9 @@ section { position: relative; }
   display: inline-block; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
   padding: 10px 16px; border-radius: 12px; background: var(--lime); color: var(--bg);
 }
+.pub__logo { display: block; width: 180px; height: auto; border-radius: 14px; transition: transform .5s var(--ease); }
+.pub:hover .pub__logo { transform: rotate(-4deg) scale(1.04); }
+@media (max-width: 760px) { .pub__logo { width: 132px; border-radius: 10px; } }
 .journey__item p.pub__authors { font-size: 16px; line-height: 1.5; max-width: 980px; }
 .pub__authors b { color: var(--ink); font-weight: 600; }
 .pub sup { color: var(--lime); font-weight: 700; }
