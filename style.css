@@ -362,7 +362,7 @@ section { position: relative; }
    ========================================================= */
 .shot__cap p { font-size: 13px; color: rgba(241, 239, 230, 0.75); margin-top: 6px; max-width: 320px; line-height: 1.35; }
 .card__desc { padding: 6px 4px 0; font-size: 14px; color: var(--muted); line-height: 1.4; }
-.footer__loc { margin-top: 6px; opacity: 0.6; font-size: 14px; }
+.footer__loc { font-weight: 500; }
 
 .journey { padding: clamp(120px, 16vw, 220px) var(--gutter) 0; }
 .journey--pub { padding-bottom: 40px; }
