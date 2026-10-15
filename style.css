@@ -365,6 +365,16 @@ section { position: relative; }
 .footer__loc { margin-top: 6px; opacity: 0.6; font-size: 14px; }
 
 .journey { padding: clamp(120px, 16vw, 220px) var(--gutter) 0; }
+.journey--pub { padding-bottom: 40px; }
+.pub h3 { font-size: clamp(26px, 3vw, 44px); line-height: 1.02; max-width: 1100px; }
+.pub__venue {
+  display: inline-block; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
+  padding: 10px 16px; border-radius: 12px; background: var(--lime); color: var(--bg);
+}
+.journey__item p.pub__authors { font-size: 16px; line-height: 1.5; max-width: 980px; }
+.pub__authors b { color: var(--ink); font-weight: 600; }
+.pub sup { color: var(--lime); font-weight: 700; }
+.pub__note { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
 .journey__head { margin-bottom: 56px; }
 .journey__list { list-style: none; border-top: 1px solid var(--line); }
 .journey__item {

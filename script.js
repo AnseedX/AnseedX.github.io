@@ -44,6 +44,16 @@ const CONTENT = {
     { art: "healthsync", title: "HealthSync", year: "2024–25", desc: "Multilingual first-aid chatbot & patient-doctor platform for rural care", tags: ["NLP", "Chatbot", "FYP · Grade A"], link: GITHUB, seed: 14 },
   ],
 
+  // "*" after a name marks equal contribution; my name is highlighted
+  publications: [
+    {
+      venue: "WACV 2027", status: "accepted",
+      title: "M-PFT: Angular Margin for Calibrated Prompt-Tuning of Fine-Tuned Vision-Language Models",
+      authors: ["Shihab Aaqil Ahamed*", "Mohamed Ansaff*", "Nang Khin Myat Lay Phyu", "Udaya Sampath K. Perera Miriya Thanthrige", "Chamira U. S. Edussooriya", "Ranga Rodrigo", "Muhammad Haris Khan"],
+      tags: ["Vision-Language Models", "Prompt Tuning", "Calibration", "Equal first author"],
+    },
+  ],
+
   experience: [
     {
       logo: "images/airasia.webp", when: "mar – sep 2026", title: "Artificial Intelligence Intern — AirAsia", where: "Kuala Lumpur · AI team · Google Cloud",
@@ -164,6 +174,21 @@ const timeline = items => items.map(j => `
   </li>`).join("");
 $("#experienceList").innerHTML = timeline(CONTENT.experience);
 $("#educationList").innerHTML = timeline(CONTENT.education);
+
+const ME = "Mohamed Ansaff";
+$("#publicationList").innerHTML = CONTENT.publications.map(p => `
+  <li class="journey__item pub">
+    <div class="journey__side"><span class="pub__venue">${p.venue}</span><span class="mono journey__when">${p.status}</span></div>
+    <div>
+      <h3>${p.title}</h3>
+      <p class="pub__authors">${p.authors.map(a => {
+        const n = a.replace(/\*$/, "<sup>*</sup>");
+        return a.startsWith(ME) ? `<b>${n}</b>` : n;
+      }).join(", ")}</p>
+      ${p.authors.some(a => a.endsWith("*")) ? `<span class="mono pub__note"><sup>*</sup> equal contribution</span>` : ""}
+      ${p.tags ? `<div class="journey__tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>` : ""}
+    </div>
+  </li>`).join("");
 
 $("#stackGrid").innerHTML = CONTENT.stack.map(([n, k]) => `<div class="tool"><span>${k}</span><b>${n}</b></div>`).join("");
 
