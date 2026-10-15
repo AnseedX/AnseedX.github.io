@@ -8,6 +8,7 @@
   --muted: #8d8f84;
   --lime: #d2ff00;
   --lime-dim: #9bbd00;
+  --cream: #f1efe6;
   --line: rgba(241, 239, 230, 0.12);
   --display: "Bricolage Grotesque", system-ui, sans-serif;
   --body: "Inter", system-ui, sans-serif;
@@ -571,3 +572,16 @@ section { position: relative; }
 /* Badge photo: centre on the face (source face centre ≈ 55.5% x, 54% y) */
 .badge__photo { position: relative; }
 .badge__photo img { position: absolute; width: 125%; height: auto; max-width: none; left: -19.4%; top: -21%; transform: none; object-fit: initial; }
+
+/* Light bands: cream sections break up the dark page */
+.light {
+  --bg: var(--cream); --bg-2: #e6e4d8; --ink: #0d0f0a; --muted: #5d6055;
+  --line: rgba(13, 15, 10, 0.14); --lime: #5b7a00;
+  background: var(--bg); color: var(--ink);
+}
+.journey.light { padding-bottom: clamp(80px, 10vw, 140px); }
+.journey--edu.light { padding-bottom: 40px; }
+.light .journey__logo, .light .cred__logo { background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+/* credentials sit right above the footer: keep cream behind its rounded corners */
+.footer { position: relative; }
+.footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 32px; background: var(--cream); z-index: -1; }
