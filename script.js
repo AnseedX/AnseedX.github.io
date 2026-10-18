@@ -71,7 +71,7 @@ const CONTENT = {
 
   education: [
     {
-      logo: "images/aiu.png", when: "oct 2023 – oct 2026", title: "BSc (Hons) Computer Science — Data Science", where: "Al-Bukhary International University · Malaysia",
+      logo: "images/aiu.png", when: "oct 2023 – oct 2026", title: "Bachelor of Computer Science (Hons) — Data Science", where: "Al-Bukhary International University · Malaysia",
       text: "CGPA 3.62 / 4.00 · Fully funded scholarship recipient.",
       tags: ["Machine Learning", "Deep Learning", "Data Mining", "Probability & Statistics", "DSA", "OOP", "Software Engineering", "Cloud Computing"],
     },
