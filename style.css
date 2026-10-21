@@ -380,6 +380,9 @@ section { position: relative; }
 .pub__authors b { color: var(--ink); font-weight: 600; }
 .pub sup { color: var(--accent); font-weight: 700; }
 .pub__note { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
+.pub__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.pub__links a { font-family: var(--mono); font-size: 12px; padding: 8px 14px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); text-decoration: none; transition: background .3s var(--ease); }
+.pub__links a:hover { background: var(--lime); }
 .journey__head { margin-bottom: 56px; }
 .journey__list { list-style: none; border-top: 1px solid var(--line); }
 .journey__item {

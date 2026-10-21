@@ -51,6 +51,7 @@ const CONTENT = {
       title: "M-PFT: Angular Margin for Calibrated Prompt-Tuning of Fine-Tuned Vision-Language Models",
       authors: ["Shihab Aaqil Ahamed*", "Mohamed Ansaff*", "Nang Khin Myat Lay Phyu", "Udaya Sampath K. Perera Miriya Thanthrige", "Chamira U. S. Edussooriya", "Ranga Rodrigo", "Muhammad Haris Khan"],
       tags: ["Vision-Language Models", "Prompt Tuning", "Calibration", "Equal first author"],
+      links: [{ label: "code", href: "https://github.com/ansaff-cs/M-PFT" }],
     },
   ],
 
@@ -186,6 +187,7 @@ $("#publicationList").innerHTML = CONTENT.publications.map(p => `
         return a.startsWith(ME) ? `<b>${n}</b>` : n;
       }).join(", ")}</p>
       ${p.authors.some(a => a.endsWith("*")) ? `<span class="mono pub__note"><sup>*</sup> equal contribution</span>` : ""}
+      ${p.links ? `<div class="pub__links">${p.links.map(l => `<a href="${l.href}"${ext(l.href)} data-cursor="view repo">${l.label} ↗</a>`).join("")}</div>` : ""}
       ${p.tags ? `<div class="journey__tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>` : ""}
     </div>
   </li>`).join("");
