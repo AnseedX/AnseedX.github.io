@@ -5,7 +5,7 @@
    lime artwork is used as a placeholder.
    link: set to a repo / demo / case-study URL.
    ========================================================= */
-const GITHUB = "https://github.com/AnseedX";
+const GITHUB = "https://github.com/ansaff-cs";
 
 const CONTENT = {
   currentProject: "Chess Coach Agent",
@@ -31,7 +31,7 @@ const CONTENT = {
       { value: "4–6", label: "gemini calls per review" },
       { value: "3", label: "coaching levels" },
     ],
-    link: "https://github.com/AnseedX/chess-coach-agent",
+    link: "https://github.com/ansaff-cs/chess-coach-agent",
     seed: 15,
   },
 
