@@ -37,10 +37,10 @@ const CONTENT = {
 
   // Project grid (the "hall of fame")
   projects: [
-    { art: "miloCard", title: "Milo", year: "2026", desc: "Offline-first coding CLI bringing agentic workflows to local LLMs", tags: ["Local LLMs", "Agents", "CLI"], link: GITHUB, seed: 7 },
+    { art: "miloCard", title: "Milo", year: "2026", desc: "Offline-first coding CLI bringing agentic workflows to local LLMs", tags: ["Local LLMs", "Agents", "CLI"], link: `${GITHUB}/milo`, seed: 7 },
     { art: "agronus", title: "Agronus", year: "2025", desc: "RAG-powered copilot giving farmers real-time, grounded guidance", tags: ["RAG", "LLM", "Imagine Cup 2026"], link: GITHUB, seed: 11 },
-    { art: "realeye", title: "RealEye", year: "2025", desc: "Frequency-augmented Vision Transformer for deepfake & AI-image detection", tags: ["ViT", "PyTorch", "91% recall"], link: GITHUB, seed: 12 },
-    { art: "icu", title: "ICU Posture Monitor", year: "2025–26", desc: "Real-time posture monitoring for bedsore-risk detection", tags: ["Computer Vision", "Healthcare", "95% acc"], link: GITHUB, seed: 13 },
+    { art: "realeye", title: "RealEye", year: "2025", desc: "Frequency-augmented Vision Transformer for deepfake & AI-image detection", tags: ["ViT", "PyTorch", "91% recall"], link: `${GITHUB}/RealEye`, seed: 12 },
+    { art: "icu", title: "ICU Posture Monitor", year: "2025–26", desc: "Real-time posture monitoring for bedsore-risk detection", tags: ["Computer Vision", "Healthcare", "95% acc"], link: `${GITHUB}/ICU-Patient-Posture-Monitoring-App-TAi-`, seed: 13 },
     { art: "healthsync", title: "HealthSync", year: "2024–25", desc: "Multilingual first-aid chatbot & patient-doctor platform for rural care", tags: ["NLP", "Chatbot", "FYP · Grade A"], link: GITHUB, seed: 14 },
   ],
 
